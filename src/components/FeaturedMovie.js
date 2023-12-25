@@ -1,6 +1,5 @@
 import React from "react";
 import { Card, CardMedia, CardContent, Typography } from "@mui/material";
-
 import { styled } from "@mui/material/styles";
 
 const StyledCard = styled(Card)({
@@ -11,7 +10,7 @@ const StyledCard = styled(Card)({
 
 const StyledCardMedia = styled(CardMedia)({
   height: "100%",
-  opacity: 0.5, // Gives a dimming effect
+  opacity: 0.5,
 });
 
 const StyledCardContent = styled(CardContent)({

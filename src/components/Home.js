@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Box, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 
 import {
   fetchTrendingMovies,
   fetchTopRatedMovies,
+  fetchPopularMovies,
 } from "../services/tmdbService";
 
 import MovieRow from "./MovieRow";
@@ -12,6 +13,7 @@ import FeaturedMovie from "./FeaturedMovie";
 const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [topRatedMovies, setTopRatedMovies] = useState([]);
+  const [popularMovies, setPopularMovies] = useState([]);
 
   useEffect(() => {
     const fetchTrending = async () => {
@@ -30,6 +32,14 @@ const Home = () => {
     fetchTopRated();
   }, []);
 
+  useEffect(() => {
+    const fetchPopular = async () => {
+      const popular = await fetchPopularMovies();
+      setPopularMovies(popular);
+    };
+    fetchPopular();
+  }, []);
+
   return (
     <Grid container spacing={2} sx={{ px: 2 }}>
       <Grid item xs={12}>
@@ -39,6 +49,7 @@ const Home = () => {
       </Grid>
       <Grid item xs={12}>
         <MovieRow title="Trending Now" movies={trendingMovies} />
+        <MovieRow title="Popular" movies={popularMovies} />
         <MovieRow title="Top Rated" movies={topRatedMovies} />
       </Grid>
     </Grid>

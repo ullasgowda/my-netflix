@@ -47,6 +47,19 @@ const fetchTopRatedMovies = async () => {
 
     return response.data.results;
   } catch (error) {
+    console.error("Error fetching top rated movie:", error);
+    return null;
+  }
+};
+
+const fetchPopularMovies = async () => {
+  try {
+    const response = await axios.get(
+      `${API_BASE_URL}/movie/popular?api_key=${API_KEY}`
+    );
+
+    return response.data.results;
+  } catch (error) {
     console.error("Error fetching popular movie:", error);
     return null;
   }
@@ -57,4 +70,5 @@ export {
   fetchMovieDetails,
   fetchSimilarMovies,
   fetchTopRatedMovies,
+  fetchPopularMovies,
 };

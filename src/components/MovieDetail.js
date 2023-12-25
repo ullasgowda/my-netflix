@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
-import { fetchMovieDetails, fetchSimilarMovies } from "../services/tmdbService";
 import {
   Box,
   Grid,
@@ -11,8 +9,9 @@ import {
   Typography,
   Avatar,
 } from "@mui/material";
-
 import { styled } from "@mui/material/styles";
+
+import { fetchMovieDetails, fetchSimilarMovies } from "../services/tmdbService";
 
 import MovieRow from "./MovieRow";
 
@@ -57,11 +56,11 @@ const MovieDetail = ({}) => {
     };
     getSimilarMovies();
   }, [id]);
+
   if (isLoading) return <p>Loading...</p>;
 
   if (!movie) return <div>Movie not found</div>;
 
-  console.log("similarMovies = ", similarMovies);
   return (
     <Box sx={{ px: 2 }}>
       <Grid container spacing={2}>

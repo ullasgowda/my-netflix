@@ -1,11 +1,23 @@
 import React from "react";
 import { Grid, Box, Typography } from "@mui/material";
-
-import { Link } from "react-router-dom";
+import { styled } from "@mui/material/styles";
 
 import Movie from "./Movie";
 
+const ScrollableRow = styled(Grid)({
+  display: "flex",
+  flexWrap: "nowrap",
+  overflow: "auto",
+  overflowX: "scroll",
+  msOverflowStyle: "none",
+  scrollbarWidth: "none",
+  "&::-webkit-scrollbar": {
+    display: "none",
+  },
+});
+
 const MovieRow = ({ title, movies }) => {
+  if (movies.length === 0) return <></>;
   return (
     <Box sx={{ mt: 1, p: 1 }}>
       <Grid container spacing={1}>
@@ -15,19 +27,13 @@ const MovieRow = ({ title, movies }) => {
           </Typography>
         </Grid>
         <Grid container spacing={1}>
-          <Grid
-            container
-            spacing={1}
-            sx={{ display: "flex", flexWrap: "nowrap", mt: 3 }}
-          >
+          <ScrollableRow container spacing={1} sx={{ mt: 3 }}>
             {movies.map((movie) => (
               <Grid item key={movie.id} xs={4}>
-                <Link to={`/movie/${movie.id}`}>
-                  <Movie movie={movie} />
-                </Link>
+                <Movie movie={movie} />
               </Grid>
             ))}
-          </Grid>
+          </ScrollableRow>
         </Grid>
       </Grid>
     </Box>
