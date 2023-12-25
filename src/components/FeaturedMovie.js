@@ -20,13 +20,24 @@ const StyledCardContent = styled(CardContent)({
   left: "20px",
 });
 
-const FeaturedMovie = ({ title, description, imageUrl }) => {
+const FeaturedMovie = ({ movie }) => {
+  const imageUrl = `${process.env.REACT_APP_TMDB_IMAGE_BASE_URL}original${movie.backdrop_path}`;
+
   return (
     <StyledCard>
-      <StyledCardMedia image={imageUrl} title={title} />
-      <StyledCardContent>
-        <Typography variant="h4">{title}</Typography>
-        <Typography variant="body1">{description}</Typography>
+      <StyledCardMedia image={imageUrl} title={movie.title} />
+      <StyledCardContent
+        sx={{
+          color: "#ffffff",
+          mb: 0,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-end",
+          justifyContent: "center",
+        }}
+      >
+        <Typography variant="h4">{movie.title}</Typography>
+        <Typography variant="caption">Rated : {movie.vote_average}</Typography>
       </StyledCardContent>
     </StyledCard>
   );

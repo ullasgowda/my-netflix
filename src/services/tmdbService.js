@@ -39,4 +39,22 @@ const fetchSimilarMovies = async (movieId) => {
   }
 };
 
-export { fetchTrendingMovies, fetchMovieDetails, fetchSimilarMovies };
+const fetchTopRatedMovies = async () => {
+  try {
+    const response = await axios.get(
+      `${API_BASE_URL}/movie/top_rated?api_key=${API_KEY}`
+    );
+
+    return response.data.results;
+  } catch (error) {
+    console.error("Error fetching popular movie:", error);
+    return null;
+  }
+};
+
+export {
+  fetchTrendingMovies,
+  fetchMovieDetails,
+  fetchSimilarMovies,
+  fetchTopRatedMovies,
+};

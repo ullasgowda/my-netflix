@@ -63,7 +63,7 @@ const MovieDetail = ({}) => {
 
   console.log("similarMovies = ", similarMovies);
   return (
-    <Box>
+    <Box sx={{ px: 2 }}>
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <StyledCard>
@@ -80,14 +80,35 @@ const MovieDetail = ({}) => {
             </StyledCardContent>
           </StyledCard>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} sx={{ color: "white" }}>
           <Grid container spacing={3}>
+            <Grid
+              item
+              xs={12}
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+              }}
+            >
+              <Typography gutterBottom variant="subtitle1">
+                {movie.release_date.split("-")[0]} |{" "}
+                {movie.genres.map((genre) => genre.name).join(", ")}
+              </Typography>
+              <Typography variant="body1">
+                Rating: {movie.vote_average}/10
+              </Typography>
+            </Grid>
+
             <Grid item xs={8}>
-              <Typography variant="h6">Overview</Typography>
+              <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>
+                Overview
+              </Typography>
               <Typography>{movie.overview}</Typography>
             </Grid>
             <Grid item xs={4}>
-              <Typography variant="h6">Cast</Typography>
+              <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>
+                Cast
+              </Typography>
               <Grid container spacing={2}>
                 {movie.credits.cast.slice(0, 5).map((actor) => (
                   <Grid
@@ -117,15 +138,6 @@ const MovieDetail = ({}) => {
                   title="YouTube video player"
                 ></iframe>
               )}
-            </Grid>
-            <Grid item xs={12}>
-              <Typography gutterBottom variant="subtitle1">
-                {movie.release_date.split("-")[0]} |{" "}
-                {movie.genres.map((genre) => genre.name).join(", ")}
-              </Typography>
-              <Typography variant="body1">
-                Rating: {movie.vote_average}/10
-              </Typography>
             </Grid>
             <Grid item xs={12}>
               {similarMovies.length > 0 && (

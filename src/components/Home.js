@@ -1,31 +1,45 @@
 import React, { useEffect, useState } from "react";
 import { Box, Grid } from "@mui/material";
 
-import { fetchTrendingMovies } from "../services/tmdbService";
+import {
+  fetchTrendingMovies,
+  fetchTopRatedMovies,
+} from "../services/tmdbService";
 
-import FeaturedMovie from "./FeaturedMovie";
 import MovieRow from "./MovieRow";
+import FeaturedMovie from "./FeaturedMovie";
 
 const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
+  const [topRatedMovies, setTopRatedMovies] = useState([]);
 
   useEffect(() => {
-    const loadMovies = async () => {
+    const fetchTrending = async () => {
       const trending = await fetchTrendingMovies();
       setTrendingMovies(trending);
     };
 
-    loadMovies();
+    fetchTrending();
+  }, []);
+
+  useEffect(() => {
+    const fetchTopRated = async () => {
+      const topRated = await fetchTopRatedMovies();
+      setTopRatedMovies(topRated);
+    };
+    fetchTopRated();
   }, []);
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={2} sx={{ px: 2 }}>
       <Grid item xs={12}>
-        <FeaturedMovie title="Movie Titld" description="One two three" />
+        {topRatedMovies.length > 0 && (
+          <FeaturedMovie movie={topRatedMovies[0]} />
+        )}
       </Grid>
       <Grid item xs={12}>
         <MovieRow title="Trending Now" movies={trendingMovies} />
-        {/* <MovieRow title="Trendin2g" movies={movies} /> */}
+        <MovieRow title="Top Rated" movies={topRatedMovies} />
       </Grid>
     </Grid>
   );

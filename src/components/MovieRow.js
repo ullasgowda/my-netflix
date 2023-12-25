@@ -10,7 +10,9 @@ const MovieRow = ({ title, movies }) => {
     <Box sx={{ mt: 1, p: 1 }}>
       <Grid container spacing={1}>
         <Grid item xs={12}>
-          <Typography variant="h6">{title}</Typography>
+          <Typography variant="h6" sx={{ color: "#db0000" }}>
+            {title}
+          </Typography>
         </Grid>
         <Grid container spacing={1}>
           <Grid

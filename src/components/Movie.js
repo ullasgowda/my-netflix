@@ -16,7 +16,7 @@ const Movie = ({ movie }) => {
       <CardActionArea>
         <CardMedia component={"img"} image={imageUrl} alt={movie.title} />
       </CardActionArea>
-      <CardContent sx={{ height: "40px" }}>
+      <CardContent sx={{ height: "20px" }}>
         <Typography variant="legend" sx={{ height: "200px" }}>
           {movie.title}
         </Typography>
