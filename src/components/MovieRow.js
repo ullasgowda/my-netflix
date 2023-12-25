@@ -1,6 +1,8 @@
 import React from "react";
 import { Grid, Box, Typography } from "@mui/material";
 
+import { Link } from "react-router-dom";
+
 import Movie from "./Movie";
 
 const MovieRow = ({ title, movies }) => {
@@ -18,7 +20,9 @@ const MovieRow = ({ title, movies }) => {
           >
             {movies.map((movie) => (
               <Grid item key={movie.id} xs={4}>
-                <Movie movie={movie} />
+                <Link to={`/movie/${movie.id}`}>
+                  <Movie movie={movie} />
+                </Link>
               </Grid>
             ))}
           </Grid>
