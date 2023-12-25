@@ -15,7 +15,12 @@ const Movie = ({ movie }) => {
     <Card sx={{ mx: 2, minWidth: "250px" }}>
       <Link to={`/movie/${movie.id}`}>
         <CardActionArea>
-          <CardMedia component={"img"} image={imageUrl} alt={movie.title} />
+          <CardMedia
+            component={"img"}
+            image={imageUrl}
+            alt={movie.title}
+            sx={{ minHeight: "400px" }}
+          />
         </CardActionArea>
       </Link>
 
