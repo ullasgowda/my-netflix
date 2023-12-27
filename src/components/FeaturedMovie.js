@@ -2,6 +2,8 @@ import React from "react";
 import { Card, CardMedia, CardContent, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
+import PlayButton from "./Buttons/Play";
+
 const StyledCard = styled(Card)({
   position: "relative",
   height: "500px",
@@ -17,6 +19,11 @@ const StyledCardContent = styled(CardContent)({
   position: "absolute",
   bottom: "20px",
   left: "20px",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "flex-start",
+  justifyContent: "center",
+  width: "40%",
 });
 
 const FeaturedMovie = ({ movie }) => {
@@ -25,18 +32,10 @@ const FeaturedMovie = ({ movie }) => {
   return (
     <StyledCard>
       <StyledCardMedia image={imageUrl} title={movie.title} />
-      <StyledCardContent
-        sx={{
-          color: "#ffffff",
-          mb: 0,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-end",
-          justifyContent: "center",
-        }}
-      >
-        <Typography variant="h4">{movie.title}</Typography>
-        <Typography variant="caption">Rated : {movie.vote_average}</Typography>
+      <StyledCardContent sx={{}}>
+        <Typography variant="h3">Watch {movie.title} Now</Typography>
+        <Typography variant="body1">{movie.overview}</Typography>
+        <PlayButton />
       </StyledCardContent>
     </StyledCard>
   );
