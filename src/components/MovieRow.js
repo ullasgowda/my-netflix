@@ -18,6 +18,7 @@ const ScrollableRow = styled(Grid)({
 
 const MovieRow = ({ title, movies }) => {
   if (movies.length === 0) return <></>;
+
   return (
     <Box sx={{ mt: 1, p: 1 }}>
       <Grid container spacing={1}>
@@ -27,7 +28,7 @@ const MovieRow = ({ title, movies }) => {
           </Typography>
         </Grid>
         <Grid container spacing={1}>
-          <ScrollableRow container spacing={1} sx={{ mt: 3 }}>
+          <ScrollableRow container spacing={1} sx={{ m: 2 }}>
             {movies.map((movie) => (
               <Grid item key={movie.id} xs={4}>
                 <Movie movie={movie} />

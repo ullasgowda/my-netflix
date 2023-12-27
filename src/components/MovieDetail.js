@@ -10,7 +10,7 @@ import {
   Avatar,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
-
+import PlayButton from "./Buttons/Play";
 import { fetchMovieDetails, fetchSimilarMovies } from "../services/tmdbService";
 
 import MovieRow from "./MovieRow";
@@ -30,9 +30,15 @@ const StyledCardContent = styled(CardContent)({
   position: "absolute",
   bottom: "20px",
   left: "20px",
+  mb: 8,
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "flex-start",
+  justifyContent: "center",
+  width: "40%",
 });
 
-const MovieDetail = ({}) => {
+const MovieDetail = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [similarMovies, setSimilarMovies] = useState([]);
@@ -74,8 +80,9 @@ const MovieDetail = ({}) => {
             <StyledCardContent>
               <Typography variant="h4">{movie.title}</Typography>
               <Typography variant="caption" component="span">
-                {movie.tagline}
+                {movie.overview}
               </Typography>
+              <PlayButton />
             </StyledCardContent>
           </StyledCard>
         </Grid>
