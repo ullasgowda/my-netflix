@@ -16,13 +16,14 @@ const Header = () => {
   const handleClick = () => {
     navigate("/");
   };
+
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ opacity: 0.9 }}>
       <StyledToolbar>
         <Grid container spacing={1}>
           <Grid item xs={10}>
             <Typography
-              variant="h6"
+              variant="h5"
               sx={{ cursor: "pointer" }}
               onClick={handleClick}
             >
