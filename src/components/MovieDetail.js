@@ -23,7 +23,7 @@ const StyledCard = styled(Card)({
 
 const StyledCardMedia = styled(CardMedia)({
   height: "100%",
-  opacity: 0.5, // Gives a dimming effect
+  opacity: 0.8,
 });
 
 const StyledCardContent = styled(CardContent)({
@@ -79,9 +79,6 @@ const MovieDetail = () => {
             />
             <StyledCardContent>
               <Typography variant="h4">{movie.title}</Typography>
-              <Typography variant="caption" component="span">
-                {movie.overview}
-              </Typography>
               <PlayButton />
             </StyledCardContent>
           </StyledCard>

@@ -12,7 +12,7 @@ const StyledCard = styled(Card)({
 
 const StyledCardMedia = styled(CardMedia)({
   height: "100%",
-  opacity: 0.5,
+  opacity: 0.7,
 });
 
 const StyledCardContent = styled(CardContent)({
@@ -32,9 +32,8 @@ const FeaturedMovie = ({ movie }) => {
   return (
     <StyledCard>
       <StyledCardMedia image={imageUrl} title={movie.title} />
-      <StyledCardContent sx={{}}>
+      <StyledCardContent>
         <Typography variant="h3">Watch {movie.title} Now</Typography>
-        <Typography variant="body1">{movie.overview}</Typography>
         <PlayButton />
       </StyledCardContent>
     </StyledCard>
