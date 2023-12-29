@@ -30,7 +30,7 @@ const MovieRow = ({ title, movies }) => {
         <Grid container spacing={1}>
           <ScrollableRow container spacing={1} sx={{ m: 2 }}>
             {movies.map((movie) => (
-              <Grid item key={movie.id} xs={4}>
+              <Grid item key={movie.id} xs={4} sx={{ minWidth: "270px" }}>
                 <Movie movie={movie} />
               </Grid>
             ))}
