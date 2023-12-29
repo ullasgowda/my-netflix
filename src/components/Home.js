@@ -9,6 +9,7 @@ import {
 
 import MovieRow from "./MovieRow";
 import FeaturedMovie from "./FeaturedMovie";
+import Header from "./Header";
 
 const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
@@ -41,8 +42,11 @@ const Home = () => {
   }, []);
 
   return (
-    <Grid container spacing={2} sx={{ px: 2 }}>
+    <Grid container>
       <Grid item xs={12}>
+        <Header />
+      </Grid>
+      <Grid item xs={12} sx={{ px: 2 }}>
         {topRatedMovies.length > 0 && (
           <FeaturedMovie movie={topRatedMovies[0]} />
         )}
