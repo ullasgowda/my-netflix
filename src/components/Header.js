@@ -1,7 +1,9 @@
 import React from "react";
-import { AppBar, Toolbar, Typography } from "@mui/material";
+import { AppBar, Grid, Toolbar, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
+
+import ProfileRed from "../assets/profile_blue.png";
 
 const StyledToolbar = styled(Toolbar)({
   backgroundColor: "#000000",
@@ -17,13 +19,24 @@ const Header = () => {
   return (
     <AppBar position="static">
       <StyledToolbar>
-        <Typography
-          variant="h6"
-          sx={{ cursor: "pointer" }}
-          onClick={handleClick}
-        >
-          NETFLIX
-        </Typography>
+        <Grid container spacing={1}>
+          <Grid item xs={10}>
+            <Typography
+              variant="h6"
+              sx={{ cursor: "pointer" }}
+              onClick={handleClick}
+            >
+              NETFLIX
+            </Typography>
+          </Grid>
+          <Grid
+            item
+            xs={2}
+            sx={{ display: "flex", justifyContent: "end", cursor: "pointer" }}
+          >
+            <img src={ProfileRed} height={35} width={35}></img>
+          </Grid>
+        </Grid>
       </StyledToolbar>
     </AppBar>
   );
