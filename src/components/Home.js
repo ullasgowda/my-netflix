@@ -43,9 +43,6 @@ const Home = () => {
 
   return (
     <Grid container>
-      <Grid item xs={12}>
-        <Header />
-      </Grid>
       <Grid item xs={12} sx={{ px: 2 }}>
         {topRatedMovies.length > 0 && (
           <FeaturedMovie movie={topRatedMovies[0]} />
